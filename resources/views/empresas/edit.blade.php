@@ -26,10 +26,10 @@
         <br>
         <div class="">
             <label for="fecha_apertura">Fecha de apertura</label>
-            <input type="date" name="fecha_apertura" style="color: #333333" value="{{$empresa->fecha_apertura->format('d/m/Y')}}">
+            <input type="date" name="fecha_apertura" style="color: #333333" value="{{$empresa->fecha_apertura->format('Y-m-d')}}">
         </div>
         <br>
-        <button type="submit">
+        <button type="submit" class="btn">
             Editar empresa
         </button>
     </form>

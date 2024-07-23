@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Empleado;
 use App\Models\Empresa;
 use App\Models\Post;
 use App\Models\User;
@@ -14,5 +15,6 @@ class DatabaseSeeder extends Seeder
     {
         Post::factory(100)->create();
         Empresa::factory(20)->create();
+        Empleado::factory(100)->create();
     }
 }

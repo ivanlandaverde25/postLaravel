@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
@@ -39,3 +40,20 @@ Route::put('/empresas/{id}', [EmpresaController::class, 'update']);
 
 // Metodos delete
 Route::delete('/empresas/{id}', [EmpresaController::class, 'destroy']);
+
+
+//Rutas para empleados
+// Metodos GET
+Route::get('/empleados', [EmpleadoController::class, 'index']);
+Route::get('/empleados/create', [EmpleadoController::class, 'create']);
+Route::get('/empleados/{id}', [EmpleadoController::class, 'show']);
+Route::get('/empleados/{id}/edit', [EmpleadoController::class, 'edit']);
+
+// Metodos POST
+Route::post('/empleados', [EmpleadoController::class,'store']);
+
+// Metodos PUT
+Route::put('/empleados/{id}', [EmpleadoController::class, 'update']);
+
+// Metodos Destoy
+Route::delete('/empleados/{id}', [EmpleadoController::class, 'destroy']);
