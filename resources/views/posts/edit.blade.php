@@ -1,11 +1,11 @@
 <x-app-layout>
 
-    <a href="/posts">
+    <a href="{{route('posts.index')}}">
         Regresar al listado
     </a>
 
     <h1>Formulario para editar el post</h1>
-    <form action="/posts/{{$post->id}}" method="POST">
+    <form action="{{route('posts.update', $post->id)}}" method="POST">
 
         {{-- Token oculto que se envia al momento de llenar un formulario --}}
         @csrf
@@ -18,7 +18,7 @@
         <div class="">
             <label for="titulo">
                 Titulo
-                <input type="text" name="titulo" value="{{$post->titulo}}">
+                <input type="text" name="titulo" value="{{$post->titulo}}" style="color: #333333">
             </label>
         </div>
         <br>
@@ -26,7 +26,7 @@
         <div class="">
             <label for="">
                 Categoria
-                <input type="text" name="categoria" value="{{$post->titulo}}">
+                <input type="text" name="categoria" value="{{$post->titulo}}" style="color: #333333">
             </label>
         </div>
         <br>
@@ -35,7 +35,7 @@
             <label for="">
                 Contenido
             </label>
-            <textArea name="detalle">
+            <textArea name="detalle" style="color: #333333">
                 {{$post->detalle}}
             </textArea>
         </div>

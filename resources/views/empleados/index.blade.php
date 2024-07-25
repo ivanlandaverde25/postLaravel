@@ -3,17 +3,19 @@
         Listado de empleados :)
     </h1>
     <br>
-    <a href="/empleados/create">
+    <a href="{{route('empleados.create')}}">
         Crear nuevo registro
     </a>
     <br><br>
     @foreach ($empleados as $empleado)
         <ul>
             <li>
-                <a href="">
+                <a href="{{route('empleados.show', $empleado->id)}}">
                         {{$empleado->nombres. ' ' .$empleado->apellidos}} 
                 </a>
             </li>
         </ul>
     @endforeach
+
+    {{$empleados->links()}}
 </x-app-layout>

@@ -3,12 +3,12 @@
         Editar Registro
     </h1>
     <br>
-    <a href="/empresas">
+    <a href="{{route('empresas.index')}}">
         Regresar al listado
     </a>
     <br>
     <br>
-    <form action="/empresas/{{$empresa->id}}" method="POST">
+    <form action="{{route('empresas.update', $empresa->id)}}" method="POST">
 
         {{-- Token de seguridad de formulario --}}
         @csrf

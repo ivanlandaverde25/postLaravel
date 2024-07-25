@@ -1,7 +1,7 @@
 <x-app-layout>
     <h1>Soy el listado de empresas :)</h1>
     <br>
-    <a href="empresas/create">
+    <a href="{{route('empresas.create')}}">
         Crear nueva empresa
     </a>
     <br>
@@ -10,7 +10,7 @@
         <h4>
             <ul>
                 <li>
-                    <a href="/empresas/{{$empresa->id}}">
+                    <a href="{{route('empresas.show', $empresa->id)}}">
                         {{ $empresa->nombre}}
                     </a>
                 </li>

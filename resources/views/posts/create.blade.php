@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Formulario para creacion del post</h1>
-    <form action="/posts" method="POST">
+    <form action="{{route('posts.store')}}" method="POST">
 
         @csrf
 

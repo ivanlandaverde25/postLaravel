@@ -1,16 +1,16 @@
 <x-app-layout>
 
-    <a href="/posts">Volver al listado</a>
+    <a href="{{route('posts.index')}}">Volver al listado</a>
 
     <br>
     <br>
 
-    <a href="/posts/{{$post->id}}/edit">Editar registro</a>
+    <a href="{{route('posts.edit', $post->id)}}">Editar registro</a>
 
     <br>
     <br>
 
-    <form action="/posts/{{$post->id}}" method="POST">
+    <form action="{{route('posts.destroy', $post->id)}}" method="POST">
 
         {{-- ESTE TOKEN SIEMPRE SE DEBE ENVIAR AL MOMENTO DE REALIZAR UN FORMULARIO!!!!! --}}
         @csrf

@@ -10,4 +10,11 @@ class Empleado extends Model
     use HasFactory;
 
     protected $table = 'empleados';
+
+    protected function casts():array
+    {
+        return [
+            'fecha_ingreso' => 'date',
+        ];
+    }
 }

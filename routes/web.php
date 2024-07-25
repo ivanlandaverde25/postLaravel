@@ -10,50 +10,96 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', HomeController::class);
 
 // Rutas para las paginas de Posts
+// Generacion de todas las rutas por medio de Resource
+Route::resource('posts', PostController::class)
+->names('posts');
+
 // Metodos Get
-Route::get('/posts', [PostController::class, 'index']);
-Route::get('/posts/create', [PostController::class, 'create']);
-Route::get('/posts/{post}', [PostController::class, 'show']);
-Route::get('/posts/{post}/edit', [PostController::class, 'edit']);
+// Route::get('/posts', [PostController::class, 'index'])
+//     ->name('posts.index');
 
-// Metodos Post
-Route::post('/posts', [PostController::class, 'store']);
+// Route::get('/posts/create', [PostController::class, 'create'])
+//     ->name('posts.create');
 
-// Metodos put
-Route::put('/posts/{post}', [PostController::class, 'update']);
+// Route::get('/posts/{post}', [PostController::class, 'show'])
+//     ->name('posts.show');
 
-// Metodos destoy
-Route::delete('/posts/{post}', [PostController::class, 'destoy']);
+// Route::get('/posts/{post}/edit', [PostController::class, 'edit'])
+//     ->name('posts.edit');
+
+// // Metodos Post
+// Route::post('/posts', [PostController::class, 'store'])
+//     ->name('posts.store');
+
+// // Metodos put
+// Route::put('/posts/{post}', [PostController::class, 'update'])
+//     ->name('posts.update');
+
+// // Metodos destoy
+// Route::delete('/posts/{post}', [PostController::class, 'destroy'])
+//     ->name('posts.destroy');
+
+
 
 // Rutas para las paginas de empresas
+// Generacion de todas las rutas por medio de Resource
+Route::resource('empresas', EmpresaController::class)
+->names('empresas');
+
 //Metodos Get
-Route::get('/empresas', [EmpresaController::class, 'index']);
-Route::get('/empresas/create', [EmpresaController::class, 'create']);
-Route::get('/empresas/{id}', [EmpresaController::class, 'show']);
-Route::get('/empresas/{id}/edit', [EmpresaController::class, 'edit']);
+// Route::get('/empresas', [EmpresaController::class, 'index'])
+//     ->name('empresas.index');
 
-// Metodos Post
-Route::post('/empresas', [EmpresaController::class, 'store']);
+// Route::get('/empresas/create', [EmpresaController::class, 'create'])
+//     ->name('empresas.create');
 
-// Metodos Put
-Route::put('/empresas/{id}', [EmpresaController::class, 'update']);
+// Route::get('/empresas/{id}', [EmpresaController::class, 'show'])
+//     ->name('empresas.show');
 
-// Metodos delete
-Route::delete('/empresas/{id}', [EmpresaController::class, 'destroy']);
+// Route::get('/empresas/{id}/edit', [EmpresaController::class, 'edit'])
+//     ->name('empresas.edit');
+
+// // Metodos Post
+// Route::post('/empresas', [EmpresaController::class, 'store'])
+//     ->name('empresas.store');
+
+// // Metodos Put
+// Route::put('/empresas/{id}', [EmpresaController::class, 'update'])
+//     ->name('empresas.update');
+
+// // Metodos delete
+// Route::delete('/empresas/{id}', [EmpresaController::class, 'destroy'])
+//     ->name('empresas.destroy');
+
+
 
 
 //Rutas para empleados
+// Generacion de todas las rutas por medio de Resource
+Route::resource('/empleados', EmpleadoController::class)
+    ->names('empleados');
+
 // Metodos GET
-Route::get('/empleados', [EmpleadoController::class, 'index']);
-Route::get('/empleados/create', [EmpleadoController::class, 'create']);
-Route::get('/empleados/{id}', [EmpleadoController::class, 'show']);
-Route::get('/empleados/{id}/edit', [EmpleadoController::class, 'edit']);
+Route::get('/empleados', [EmpleadoController::class, 'index'])
+    ->name('empleados.index');
+
+Route::get('/empleados/create', [EmpleadoController::class, 'create'])
+    ->name('empleados.create');
+
+Route::get('/empleados/{id}', [EmpleadoController::class, 'show'])
+    ->name('empleados.show');
+
+Route::get('/empleados/{id}/edit', [EmpleadoController::class, 'edit'])
+    ->name('empleados.edit');
 
 // Metodos POST
-Route::post('/empleados', [EmpleadoController::class,'store']);
+Route::post('/empleados', [EmpleadoController::class,'store'])
+    ->name('empleados.store');
 
 // Metodos PUT
-Route::put('/empleados/{id}', [EmpleadoController::class, 'update']);
+Route::put('/empleados/{id}', [EmpleadoController::class, 'update'])
+    ->name('empleados.update');
 
 // Metodos Destoy
-Route::delete('/empleados/{id}', [EmpleadoController::class, 'destroy']);
+Route::delete('/empleados/{id}', [EmpleadoController::class, 'destroy'])
+    ->name('empleados.destroy');

@@ -3,12 +3,12 @@
         Esta es la vista para crear un formulario :)
         <br>
         <br>
-        <a href="/empresas">
+        <a href="{{route('empresas.index')}}">
             Regresar al listado
         </a>
         <br>
         <br>
-        <form action="/empresas" method="POST">
+        <form action="{{route('empresas.store')}}" method="POST">
 
             {{-- Token de seguridad de formulario --}}
             @csrf

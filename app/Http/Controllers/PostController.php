@@ -73,7 +73,7 @@ class PostController extends Controller
         return redirect("/posts/{$post->id}");
     }
 
-    public function destoy($post){
+    public function destroy($post){
         $post = Post::find($post);
         $post->delete();
         return redirect("/posts");
