@@ -17,6 +17,7 @@ class EmpleadoFactory extends Factory
     public function definition(): array
     {
         return [
+            'slug' => fake()->slug(),
             'nombres' => fake()->name(),
             'apellidos' => fake()->lastName(),
             'telefono' => fake()->optional(60)->numerify('####-####'),

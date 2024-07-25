@@ -19,6 +19,11 @@
             </div>
             <br>
             <div class="">
+                <label for="nombre">Slug</label>
+                <input type="text" name="slug" style="color: #333333">
+            </div>
+            <br>
+            <div class="">
                 <label for="direccion">direccion</label>
                 <input type="text" name="direccion" style="color: #333333">
             </div>

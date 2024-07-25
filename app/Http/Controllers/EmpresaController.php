@@ -39,59 +39,56 @@ class EmpresaController extends Controller
         $fechaTransformada = $fecha->format('Y-m-d');
 
         $empresa->nombre = $request->nombre;
+        $empresa->slug = $request->slug;
         $empresa->direccion = $request->direccion;
         $empresa->fecha_apertura = $fechaTransformada;
 
         $empresa->save();
 
-        return redirect('/empresas');
+        return redirect()->route('empresas.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show($empresa)
+    public function show(Empresa $empresa)
     {
-        $empresa = Empresa::find($empresa);
         return view('empresas.show', compact('empresa'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $empresa)
+    public function edit(Empresa $empresa)
     {
-        $empresa = Empresa::find($empresa);
         return view('empresas.edit', compact('empresa'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $empresa)
+    public function update(Request $request, Empresa $empresa)
     {
-        $empresa = Empresa::find($empresa);
-
         $fechaCaptura = $request->fecha_apertura;
         $fecha = Carbon::parse($fechaCaptura);
         $fechaTransformada = $fecha->format('Y-m-d');
 
         $empresa->nombre = $request->nombre;
+        $empresa->slug = $request->slug;
         $empresa->direccion = $request->direccion;
         $empresa->fecha_apertura = $fechaTransformada;
 
         $empresa->save();
-        return redirect('/empresas');
+        return redirect()->route('empresas.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $empresa)
+    public function destroy(Empresa $empresa)
     {
-        $empresa = Empresa::find($empresa);
         $empresa->delete();
 
-        return redirect('/empresas');
+        return redirect()->route('empresas.index');
     }
 }

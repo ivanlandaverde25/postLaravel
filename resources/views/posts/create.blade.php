@@ -20,6 +20,14 @@
             </label>
         </div>
         <br>
+        {{-- Slug del post --}}
+        <div class="">
+            <label for="slug">
+                Slug
+                <input type="text" name="slug">
+            </label>
+        </div>
+        <br>
         {{-- Categoria del post --}}
         <div class="">
             <label for="">

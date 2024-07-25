@@ -1,13 +1,13 @@
 <x-app-layout>
-    <a href="/empresas">
+    <a href="{{route('empresas.index')}}">
         Regresar al listado
     </a>
     <br>
-    <a href="/empresas/{{$empresa->id}}/edit">
+    <a href="{{route('empresas.edit', $empresa)}}">
         Editar registro
     </a>
     <br>
-    <form action="/empresas/{{$empresa->id}}" method="POST">
+    <form action="{{route('empresas.destroy', $empresa)}}" method="POST">
         @csrf
         @method("DELETE")
         <button type="submit">

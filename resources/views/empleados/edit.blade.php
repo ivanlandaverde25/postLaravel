@@ -10,7 +10,7 @@
     <br><br>
 
     {{-- Formulario de creacion --}}
-    <form action="{{route('empleados.update', $empleado->id)}}" method="POST">
+    <form action="{{route('empleados.update', $empleado)}}" method="POST">
 
         {{-- Token unico del formulario --}}
         @csrf
@@ -29,7 +29,16 @@
             </label>
             <input type="text" name="apellidos" id="" style="color: #333333" value="{{$empleado->apellidos}}">
         </div>
+        
         <br>
+        <div class="">
+            <label for="">
+                Slug
+            </label>
+            <input type="text" name="slug" id="" style="color: #333333" value="{{$empleado->slug}}">
+        </div>
+        <br>
+        
         <div class="">
             <label for="">
                 Telefono

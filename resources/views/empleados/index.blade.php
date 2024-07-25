@@ -10,7 +10,7 @@
     @foreach ($empleados as $empleado)
         <ul>
             <li>
-                <a href="{{route('empleados.show', $empleado->id)}}">
+                <a href="{{route('empleados.show', $empleado)}}">
                         {{$empleado->nombres. ' ' .$empleado->apellidos}} 
                 </a>
             </li>

@@ -5,7 +5,7 @@
     </a>
 
     <h1>Formulario para editar el post</h1>
-    <form action="{{route('posts.update', $post->id)}}" method="POST">
+    <form action="{{route('posts.update', $post)}}" method="POST">
 
         {{-- Token oculto que se envia al momento de llenar un formulario --}}
         @csrf
@@ -19,6 +19,14 @@
             <label for="titulo">
                 Titulo
                 <input type="text" name="titulo" value="{{$post->titulo}}" style="color: #333333">
+            </label>
+        </div>
+        <br>
+        {{-- Slug del post --}}
+        <div class="">
+            <label for="slug">
+                Slug
+                <input type="text" name="slug" value="{{$post->slug}}" style="color: #333333">
             </label>
         </div>
         <br>

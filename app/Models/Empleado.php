@@ -17,4 +17,9 @@ class Empleado extends Model
             'fecha_ingreso' => 'date',
         ];
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

@@ -18,4 +18,9 @@ class Post extends Model
             'mostrar' => 'boolean',
         ];
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

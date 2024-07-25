@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('empresas', function (Blueprint $table) {
             $table->id();
             $table->text('nombre');
+            $table->text('slug')->unique();
             $table->string('direccion');
             $table->date('fecha_apertura')->nullable();
             $table->timestamps();

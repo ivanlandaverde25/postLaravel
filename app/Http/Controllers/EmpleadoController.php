@@ -36,21 +36,21 @@ class EmpleadoController extends Controller
 
         $empleado->nombres = $request->nombres;
         $empleado->apellidos = $request->apellidos;
+        $empleado->slug = $request->slug;
         $empleado->telefono = $request->telefono;
         $empleado->fecha_ingreso = $request->fecha_ingreso;
         $empleado->salario = $request->salario;
 
         $empleado->save();
 
-        return redirect('/empleados');
+        return redirect()->route('empleados.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(Empleado $empleado)
     {
-        $empleado = Empleado::find($id);
         
         return view('empleados.show', ['empleado' => $empleado]);
     }
@@ -58,9 +58,8 @@ class EmpleadoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function edit(Empleado $empleado)
     {
-        $empleado = Empleado::find($id);
 
         return view('empleados.edit', compact('empleado'));
     }
@@ -68,28 +67,27 @@ class EmpleadoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Empleado $empleado)
     {
-        $empleado = Empleado::find($id);
 
         $empleado->nombres = $request->nombres;
         $empleado->apellidos = $request->apellidos;
+        $empleado->slug = $request->slug;
         $empleado->telefono = $request->telefono;
         $empleado->fecha_ingreso = $request->fecha_ingreso;
         $empleado->salario = $request->salario;
 
         $empleado->save();
-        return redirect('/empleados');
+        return redirect()->route('empleados.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(Empleado $empleado)
     {
-        $empleado = Empleado::find($id);
         $empleado->delete();
 
-        return redirect('/empleados');
+        return redirect()->route('empleados.index');
     }
 }

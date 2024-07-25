@@ -18,6 +18,7 @@
             </label>
             <input type="text" name="nombres" id="" style="color: #333333">
         </div>
+        
         <br>
         <div class="">
             <label for="">
@@ -25,6 +26,15 @@
             </label>
             <input type="text" name="apellidos" id="" style="color: #333333">
         </div>
+
+        <br>
+        <div class="">
+            <label for="">
+                Slug
+            </label>
+            <input type="text" name="slug" id="" style="color: #333333">
+        </div>
+        
         <br>
         <div class="">
             <label for="">

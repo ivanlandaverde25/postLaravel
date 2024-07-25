@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
+            $table->text('slug')->unique();
             $table->text('detalle');
             $table->string('categoria');
             $table->boolean('mostrar')->default(false);

@@ -8,7 +8,7 @@
     </a>
     <br>
     <br>
-    <form action="{{route('empresas.update', $empresa->id)}}" method="POST">
+    <form action="{{route('empresas.update', $empresa)}}" method="POST">
 
         {{-- Token de seguridad de formulario --}}
         @csrf
@@ -17,6 +17,11 @@
         <div class="">
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre" style="color: #333333" value="{{$empresa->nombre}}">
+        </div>
+        <br>
+        <div class="">
+            <label for="nombre">Slug</label>
+            <input type="text" name="slug" style="color: #333333" value="{{$empresa->slug}}">
         </div>
         <br>
         <div class="">

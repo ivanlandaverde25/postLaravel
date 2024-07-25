@@ -14,6 +14,18 @@ Route::get('/', HomeController::class);
 Route::resource('posts', PostController::class)
 ->names('posts');
 
+// También se puede utilizar con metodos como except o only
+// Route::resource('posts', PostController::class)
+// ->names('posts')
+// ->except(['create', 'update', 'delete']);
+
+// Route::resource('posts', PostController::class)
+// ->names('posts')
+// ->only(['index','show']);
+
+// De igual forma se puede utilizar para crear las rutas para un api
+// Route::apiResource('posts', PostController::class);
+
 // Metodos Get
 // Route::get('/posts', [PostController::class, 'index'])
 //     ->name('posts.index');
@@ -80,26 +92,26 @@ Route::resource('/empleados', EmpleadoController::class)
     ->names('empleados');
 
 // Metodos GET
-Route::get('/empleados', [EmpleadoController::class, 'index'])
-    ->name('empleados.index');
+// Route::get('/empleados', [EmpleadoController::class, 'index'])
+//     ->name('empleados.index');
 
-Route::get('/empleados/create', [EmpleadoController::class, 'create'])
-    ->name('empleados.create');
+// Route::get('/empleados/create', [EmpleadoController::class, 'create'])
+//     ->name('empleados.create');
 
-Route::get('/empleados/{id}', [EmpleadoController::class, 'show'])
-    ->name('empleados.show');
+// Route::get('/empleados/{id}', [EmpleadoController::class, 'show'])
+//     ->name('empleados.show');
 
-Route::get('/empleados/{id}/edit', [EmpleadoController::class, 'edit'])
-    ->name('empleados.edit');
+// Route::get('/empleados/{id}/edit', [EmpleadoController::class, 'edit'])
+//     ->name('empleados.edit');
 
-// Metodos POST
-Route::post('/empleados', [EmpleadoController::class,'store'])
-    ->name('empleados.store');
+// // Metodos POST
+// Route::post('/empleados', [EmpleadoController::class,'store'])
+//     ->name('empleados.store');
 
-// Metodos PUT
-Route::put('/empleados/{id}', [EmpleadoController::class, 'update'])
-    ->name('empleados.update');
+// // Metodos PUT
+// Route::put('/empleados/{id}', [EmpleadoController::class, 'update'])
+//     ->name('empleados.update');
 
-// Metodos Destoy
-Route::delete('/empleados/{id}', [EmpleadoController::class, 'destroy'])
-    ->name('empleados.destroy');
+// // Metodos Destoy
+// Route::delete('/empleados/{id}', [EmpleadoController::class, 'destroy'])
+//     ->name('empleados.destroy');

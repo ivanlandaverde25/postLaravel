@@ -28,6 +28,7 @@ class PostController extends Controller
         $post = new Post();
         
         $post->titulo = $request->titulo;
+        $post->slug = $request->slug;
         $post->categoria = $request->categoria;
         $post->detalle = $request->detalle;
 
@@ -38,28 +39,26 @@ class PostController extends Controller
         }
         
         $post->save();
-        return redirect('/posts');
+        return redirect()->route('posts.index');
     }
     
     // Metodo para mostrar un post en especifico, GET
-    public function show($post){
-        $post = Post::find($post);
+    public function show(Post $post){
         return view('posts.show', compact('post'));
     }
 
     
     // Metodo para ver la vista de editar un registro previamente creado
-    public function edit($post){
-        $post = Post::find($post);
+    public function edit(Post $post){
         return  view('posts.edit', compact('post'));
     }
 
     // Metodo para actualizar un post creado y guardarlo en la base de datos
-    public function update(Request $request, $post){
-        $dateTime = Carbon::now();$dateTime = Carbon::now();
-        $post = Post::find($post);
+    public function update(Request $request, Post $post){
+        $dateTime = Carbon::now();
 
         $post->titulo = $request->titulo;
+        $post->slug = $request->slug;
         $post->categoria = $request->categoria;
         $post->detalle = $request->detalle;
 
@@ -70,12 +69,11 @@ class PostController extends Controller
         }
         
         $post->save();
-        return redirect("/posts/{$post->id}");
+        return redirect()->route('posts.show', $post);
     }
 
-    public function destroy($post){
-        $post = Post::find($post);
+    public function destroy(Post $post){
         $post->delete();
-        return redirect("/posts");
+        return redirect()->route('posts.index');
     }
 }

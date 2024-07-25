@@ -18,6 +18,7 @@ class EmpresaFactory extends Factory
     {
         return [
             'nombre' => fake()->word(),
+            'slug' => fake()->slug(),
             'direccion' => fake()->text(150),
             'fecha_apertura' => fake()->dateTime(),
         ];

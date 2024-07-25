@@ -10,7 +10,7 @@
         <h4>
             <ul>
                 <li>
-                    <a href="{{route('empresas.show', $empresa->id)}}">
+                    <a href="{{route('empresas.show', $empresa)}}">
                         {{ $empresa->nombre}}
                     </a>
                 </li>

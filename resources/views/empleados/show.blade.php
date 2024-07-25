@@ -7,11 +7,11 @@
         Regrear al listado
     </a>
     <br>
-    <a href="{{route('empleados.edit', $empleado->id)}}">
+    <a href="{{route('empleados.edit', $empleado)}}">
         Editar Registro
     </a>
     <br>
-    <form action="{{route('empleados.destroy', $empleado->id)}}" method="POST">
+    <form action="{{route('empleados.destroy', $empleado)}}" method="POST">
         
         @csrf
         @method("DELETE")

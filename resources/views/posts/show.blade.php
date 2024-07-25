@@ -5,12 +5,12 @@
     <br>
     <br>
 
-    <a href="{{route('posts.edit', $post->id)}}">Editar registro</a>
+    <a href="{{route('posts.edit', $post)}}">Editar registro</a>
 
     <br>
     <br>
 
-    <form action="{{route('posts.destroy', $post->id)}}" method="POST">
+    <form action="{{route('posts.destroy', $post)}}" method="POST">
 
         {{-- ESTE TOKEN SIEMPRE SE DEBE ENVIAR AL MOMENTO DE REALIZAR UN FORMULARIO!!!!! --}}
         @csrf
@@ -25,6 +25,7 @@
 
     <h1>Detalles del post</h1>
     <h2>Titulo: {{$post->titulo}}</h2>
+    <h2>Slug: {{$post->slug}}</h2>
     <h3>Categoria: {{$post->categoria}}</h3>
     <section>
         {{$post->detalle}}

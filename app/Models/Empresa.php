@@ -15,4 +15,9 @@ class Empresa extends Model
             'fecha_apertura' => 'date',
         ];
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
