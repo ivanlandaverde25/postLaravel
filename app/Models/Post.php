@@ -18,6 +18,11 @@ class Post extends Model
         'categoria',
     ];
 
+    // La variable guarded se utiliza para indicar cuales campos no se van a permitir por medio de asignacion masiva
+    protected $guarded = [
+        
+    ];
+
     protected function casts():array
     {
         return [

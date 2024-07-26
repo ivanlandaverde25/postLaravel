@@ -6,6 +6,15 @@
     </a>
     <br><br>
 
+    {{-- Errores de campos que se muestran al usuario en caso que no se cumplan las validaciones --}}
+    @if ($errors->any())
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
+
     {{-- Formulario de creacion --}}
     <form action="{{route('empleados.store')}}" method="POST">
 
@@ -16,7 +25,7 @@
             <label for="">
                 Nombres
             </label>
-            <input type="text" name="nombres" id="" style="color: #333333">
+            <input type="text" name="nombres" id="" style="color: #333333" value="{{old('nombres')}}">
         </div>
         
         <br>
@@ -24,7 +33,7 @@
             <label for="">
                 Apellidos
             </label>
-            <input type="text" name="apellidos" id="" style="color: #333333">
+            <input type="text" name="apellidos" id="" style="color: #333333" value="{{old('apellidos')}}">
         </div>
 
         <br>
@@ -32,7 +41,7 @@
             <label for="">
                 Slug
             </label>
-            <input type="text" name="slug" id="" style="color: #333333">
+            <input type="text" name="slug" id="" style="color: #333333" value="{{old('slug')}}">
         </div>
         
         <br>
@@ -40,21 +49,21 @@
             <label for="">
                 Telefono
             </label>
-            <input type="text" name="telefono" id="" placeholder="####-####" style="color: #333333">
+            <input type="text" name="telefono" id="" placeholder="####-####" style="color: #333333" value="{{old('telefono')}}">
         </div>
         <br>
         <div class="">
             <label for="">
                 Fecha de ingreso
             </label>    
-            <input type="date" name="fecha_ingreso" id="" style="color: #333333">
+            <input type="date" name="fecha_ingreso" id="" style="color: #333333" value="{{old('fecha_ingreso')}}">
         </div>
         <br>
         <div class="">
             <label for="">
                 Salario
             </label>    
-            <input type="number" name="salario" step=".01" id="" style="color: #333333">
+            <input type="number" name="salario" step=".01" id="" style="color: #333333" value="{{old('salario')}}">
         </div>
         <br>
         <div class="">

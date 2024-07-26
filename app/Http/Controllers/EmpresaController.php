@@ -33,17 +33,28 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        $empresa = new Empresa();
-        $fechaCaptura = $request->fecha_apertura;
-        $fecha = Carbon::parse($fechaCaptura);
-        $fechaTransformada = $fecha->format('Y-m-d');
+        // Validacion de campos
+        $request->validate([
+            'nombre' => 'required|string|min:5|max:255',
+            'slug' => 'required|string|min:3|max:255|unique:empresas,slug',
+            'direccion' => 'required|string|min:10|max:255',
+            'fecha_apertura' => 'required|date',
+        ]);
+        
+        // Creacion por medio de asignacion masiva
+        Empresa::create($request->all());
 
-        $empresa->nombre = $request->nombre;
-        $empresa->slug = $request->slug;
-        $empresa->direccion = $request->direccion;
-        $empresa->fecha_apertura = $fechaTransformada;
+        // $empresa = new Empresa();
+        // $fechaCaptura = $request->fecha_apertura;
+        // $fecha = Carbon::parse($fechaCaptura);
+        // $fechaTransformada = $fecha->format('Y-m-d');
 
-        $empresa->save();
+        // $empresa->nombre = $request->nombre;
+        // $empresa->slug = $request->slug;
+        // $empresa->direccion = $request->direccion;
+        // $empresa->fecha_apertura = $fechaTransformada;
+
+        // $empresa->save();
 
         return redirect()->route('empresas.index');
     }
@@ -69,16 +80,26 @@ class EmpresaController extends Controller
      */
     public function update(Request $request, Empresa $empresa)
     {
-        $fechaCaptura = $request->fecha_apertura;
-        $fecha = Carbon::parse($fechaCaptura);
-        $fechaTransformada = $fecha->format('Y-m-d');
+        $request->validate([
+            'nombre' => 'required|string|min:5|max:255',
+            'slug' => "required|string|min:3|max:255|unique:empresas,slug,{$empresa->id}",
+            'direccion' => 'required|string|min:10|max:255',
+            'fecha_apertura' => 'required|date',
+        ]);
+        
+        // Creacion por medio de asignacion masiva
+        $empresa->update($request->all());
 
-        $empresa->nombre = $request->nombre;
-        $empresa->slug = $request->slug;
-        $empresa->direccion = $request->direccion;
-        $empresa->fecha_apertura = $fechaTransformada;
+        // $fechaCaptura = $request->fecha_apertura;
+        // $fecha = Carbon::parse($fechaCaptura);
+        // $fechaTransformada = $fecha->format('Y-m-d');
 
-        $empresa->save();
+        // $empresa->nombre = $request->nombre;
+        // $empresa->slug = $request->slug;
+        // $empresa->direccion = $request->direccion;
+        // $empresa->fecha_apertura = $fechaTransformada;
+
+        // $empresa->save();
         return redirect()->route('empresas.index');
     }
 

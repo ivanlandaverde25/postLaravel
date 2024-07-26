@@ -32,16 +32,29 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        $empleado = new Empleado();
+        // Validación de campos
+        $request->validate([
+            'nombres' => 'required|max:100',
+            'apellidos' => 'required|max:100',
+            'slug' => 'required|max:100|unique:empleados',
+            'telefono' => 'nullable|max:20',
+            'fecha_ingreso' => 'nullable|date',
+            'salario' => 'nullable|numeric',
+        ]);
 
-        $empleado->nombres = $request->nombres;
-        $empleado->apellidos = $request->apellidos;
-        $empleado->slug = $request->slug;
-        $empleado->telefono = $request->telefono;
-        $empleado->fecha_ingreso = $request->fecha_ingreso;
-        $empleado->salario = $request->salario;
+        // Creacion por medio de asignacion masiva
+        Empleado::create($request->all());
 
-        $empleado->save();
+        // $empleado = new Empleado();
+
+        // $empleado->nombres = $request->nombres;
+        // $empleado->apellidos = $request->apellidos;
+        // $empleado->slug = $request->slug;
+        // $empleado->telefono = $request->telefono;
+        // $empleado->fecha_ingreso = $request->fecha_ingreso;
+        // $empleado->salario = $request->salario;
+
+        // $empleado->save();
 
         return redirect()->route('empleados.index');
     }
@@ -69,15 +82,27 @@ class EmpleadoController extends Controller
      */
     public function update(Request $request, Empleado $empleado)
     {
+        // Validación de campos a actualizar
+        $request->validate([
+            'nombres' => 'required|max:100',
+            'apellidos' => 'required|max:100',
+            'slug' => "required|max:100|unique:empleados,slug,{$empleado->id}",
+            'telefono' => 'nullable|max:20',
+            'fecha_ingreso' => 'nullable|date',
+            'salario' => 'nullable|numeric',
+        ]);
 
-        $empleado->nombres = $request->nombres;
-        $empleado->apellidos = $request->apellidos;
-        $empleado->slug = $request->slug;
-        $empleado->telefono = $request->telefono;
-        $empleado->fecha_ingreso = $request->fecha_ingreso;
-        $empleado->salario = $request->salario;
+        // Actualización por medio de asignación masiva
+        $empleado->update($request->all());
 
-        $empleado->save();
+        // $empleado->nombres = $request->nombres;
+        // $empleado->apellidos = $request->apellidos;
+        // $empleado->slug = $request->slug;
+        // $empleado->telefono = $request->telefono;
+        // $empleado->fecha_ingreso = $request->fecha_ingreso;
+        // $empleado->salario = $request->salario;
+
+        // $empleado->save();
         return redirect()->route('empleados.index');
     }
 

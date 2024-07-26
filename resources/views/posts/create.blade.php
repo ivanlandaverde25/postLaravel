@@ -6,8 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Crear Post</title>
 </head>
-<body>
+<body style="background-color: #333333; color: #FAFAFA;">
     <h1>Formulario para creacion del post</h1>
+
+    {{-- Los errores se pueden manejar tanto a nivel de lista de esta manera --}}
+    @if ($errors->any())
+        <div class="">
+            <h2>Errores:</h2>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <form action="{{route('posts.store')}}" method="POST">
 
         @csrf
@@ -16,15 +29,22 @@
         <div class="">
             <label for="titulo">
                 Titulo
-                <input type="text" name="titulo">
+                <input type="text" name="titulo" style="color: #333333;" value="{{old('titulo')}}">
             </label>
         </div>
+
+        {{-- Como a nivel de cada uno de los campos para mostrarlo mas personalizado --}}
+        {{-- @error('titulo')
+        <p>{{$message}}</p>
+        @enderror --}}
         <br>
+
+
         {{-- Slug del post --}}
         <div class="">
             <label for="slug">
                 Slug
-                <input type="text" name="slug">
+                <input type="text" name="slug" style="color: #333333;" value="{{old('slug')}}">
             </label>
         </div>
         <br>
@@ -32,7 +52,7 @@
         <div class="">
             <label for="">
                 Categoria
-                <input type="text" name="categoria">
+                <input type="text" name="categoria" style="color: #333333;" value="{{old('categoria')}}">
             </label>
         </div>
         <br>
@@ -41,7 +61,7 @@
             <label for="">
                 Contenido
             </label>
-            <textArea name="detalle">
+            <textArea name="detalle" style="color: #333333;" {{old('detalle')}}>
 
             </textArea>
         </div>
@@ -49,7 +69,7 @@
         {{-- Activar post --}}
         <div class="">
             <label for="mostrar">
-                <input type="checkbox" name="mostrar" unchecked>
+                <input type="checkbox" name="mostrar" unchecked style="color: #333333;" value="{{old('mostrar')}}">
                 Mostrar
             </label>
         </div>

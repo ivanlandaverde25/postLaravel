@@ -9,6 +9,15 @@
     </a>
     <br><br>
 
+    {{-- Errores que se muetran al usuario con relacion a las validaciones de los campos --}}
+    @if ($errors->any())
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
+
     {{-- Formulario de creacion --}}
     <form action="{{route('empleados.update', $empleado)}}" method="POST">
 
@@ -20,14 +29,14 @@
             <label for="">
                 Nombres
             </label>
-            <input type="text" name="nombres" id="" style="color: #333333" value="{{$empleado->nombres}}">
+            <input type="text" name="nombres" id="" style="color: #333333" value="{{old('nombres', $empleado->nombres)}}">
         </div>
         <br>
         <div class="">
             <label for="">
                 Apellidos
             </label>
-            <input type="text" name="apellidos" id="" style="color: #333333" value="{{$empleado->apellidos}}">
+            <input type="text" name="apellidos" id="" style="color: #333333" value="{{old('apellidos', $empleado->apellidos)}}">
         </div>
         
         <br>
@@ -35,7 +44,7 @@
             <label for="">
                 Slug
             </label>
-            <input type="text" name="slug" id="" style="color: #333333" value="{{$empleado->slug}}">
+            <input type="text" name="slug" id="" style="color: #333333" value="{{old('slug', $empleado->slug)}}">
         </div>
         <br>
         
@@ -43,14 +52,14 @@
             <label for="">
                 Telefono
             </label>
-            <input type="text" name="telefono" id="" placeholder="####-####" style="color: #333333" value="{{$empleado->telefono}}">
+            <input type="text" name="telefono" id="" placeholder="####-####" style="color: #333333" value="{{old('telefono', $empleado->telefono)}}">
         </div>
         <br>
         <div class="">
             <label for="">
                 Fecha de ingreso
             </label>    
-            <input type="date" name="fecha_ingreso" id="" style="color: #333333" value="{{$empleado->fecha_ingreso->format('Y-m-d')}}">
+            <input type="date" name="fecha_ingreso" id="" style="color: #333333" value="{{old('fecha_ingreso', $empleado->fecha_ingreso->format('Y-m-d'))}}">
         </div>
         <br>
         <div class="">

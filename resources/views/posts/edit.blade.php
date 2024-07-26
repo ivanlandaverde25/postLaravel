@@ -5,6 +5,18 @@
     </a>
 
     <h1>Formulario para editar el post</h1>
+    <br>
+    
+    {{-- Mostrando los errores de validaciones en el caso que no se completen todos los campos de manera correcta --}}
+    @if ($errors->any())
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    @endif
+
+    <br>
     <form action="{{route('posts.update', $post)}}" method="POST">
 
         {{-- Token oculto que se envia al momento de llenar un formulario --}}
@@ -18,7 +30,7 @@
         <div class="">
             <label for="titulo">
                 Titulo
-                <input type="text" name="titulo" value="{{$post->titulo}}" style="color: #333333">
+                <input type="text" name="titulo" value="{{old('titulo', $post->titulo)}}" style="color: #333333">
             </label>
         </div>
         <br>
@@ -26,7 +38,7 @@
         <div class="">
             <label for="slug">
                 Slug
-                <input type="text" name="slug" value="{{$post->slug}}" style="color: #333333">
+                <input type="text" name="slug" value="{{old('slug', $post->slug)}}" style="color: #333333">
             </label>
         </div>
         <br>
@@ -34,7 +46,7 @@
         <div class="">
             <label for="">
                 Categoria
-                <input type="text" name="categoria" value="{{$post->titulo}}" style="color: #333333">
+                <input type="text" name="categoria" value="{{old('categoria', $post->categoria)}}" style="color: #333333">
             </label>
         </div>
         <br>
@@ -44,7 +56,7 @@
                 Contenido
             </label>
             <textArea name="detalle" style="color: #333333">
-                {{$post->detalle}}
+                {{old('detalle', $post->detalle)}}
             </textArea>
         </div>
         <br>

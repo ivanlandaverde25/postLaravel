@@ -17,7 +17,7 @@
     <br>
     <br>
     
-    <h1>Detalles de la empresa</h1>
+    <h1>Detalles de la empresa</h1>  
     
     <br>
     
