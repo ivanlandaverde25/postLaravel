@@ -23,22 +23,22 @@ class PostController extends Controller
     // Metodo para almacenar los datos dentro de la base de datos de un post, POST
     public function store(Request $request){
         
-        // Variables locales
-        $dateTime = Carbon::now();
-        $post = new Post();
+        // Se puede realizar de manera masiva pero se deben configurar los campos fillables dentro del modelo
+        Post::create($request->all());
         
-        $post->titulo = $request->titulo;
-        $post->slug = $request->slug;
-        $post->categoria = $request->categoria;
-        $post->detalle = $request->detalle;
+        // O se puede realizar de manera normal en el caso que sean pocos campos
+        // $post->titulo = $request->titulo;
+        // $post->slug = $request->slug;
+        // $post->categoria = $request->categoria;
+        // $post->detalle = $request->detalle;
 
-        if($request->activo == null){
-            $post->mostrar = false;
-        } else {
-            $post->fecha_publicacion = $dateTime;
-        }
+        // if($request->activo == null){
+        //     $post->mostrar = false;
+        // } else {
+        //     $post->fecha_publicacion = Carbon::now();
+        // }
         
-        $post->save();
+        // $post->save();
         return redirect()->route('posts.index');
     }
     
@@ -55,20 +55,22 @@ class PostController extends Controller
 
     // Metodo para actualizar un post creado y guardarlo en la base de datos
     public function update(Request $request, Post $post){
-        $dateTime = Carbon::now();
 
-        $post->titulo = $request->titulo;
-        $post->slug = $request->slug;
-        $post->categoria = $request->categoria;
-        $post->detalle = $request->detalle;
+        // Actualizacion por medio de asignacion masiva
+        $post->update($request->all());
 
-        if($request->activo == null){
-            $post->mostrar = false;
-        } else {
-            $post->fecha_publicacion = $dateTime;
-        }
+        // $post->titulo = $request->titulo;
+        // $post->slug = $request->slug;
+        // $post->categoria = $request->categoria;
+        // $post->detalle = $request->detalle;
+
+        // if($request->activo == null){
+        //     $post->mostrar = false;
+        // } else {
+        //     $post->fecha_publicacion = $request->Carbon::now();
+        // }
         
-        $post->save();
+        // $post->save();
         return redirect()->route('posts.show', $post);
     }
 

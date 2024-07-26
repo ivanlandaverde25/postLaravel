@@ -21,8 +21,7 @@ class PostFactory extends Factory
             'slug' => fake()->slug(),
             'detalle' => fake()->text(1000),
             'categoria' => fake()->word(),
-            'mostrar' => fake()->randomElement([true, false]),
-            'fecha_publicacion' => fake()->dateTime(),
+            'fecha_publicacion' => fake()->date(),
         ];
     }
 }

@@ -11,6 +11,10 @@ class Empleado extends Model
 
     protected $table = 'empleados';
 
+    protected $fillable = [
+
+    ];
+
     protected function casts():array
     {
         return [

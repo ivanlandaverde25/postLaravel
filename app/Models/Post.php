@@ -11,6 +11,13 @@ class Post extends Model
 
     protected $table = 'posts';
 
+    protected $fillable = [
+        'titulo',
+        'slug',
+        'detalle',
+        'categoria',
+    ];
+
     protected function casts():array
     {
         return [

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('detalle');
             $table->string('categoria');
             $table->boolean('mostrar')->default(false);
-            $table->timestamp('fecha_publicacion')->nullable();
+            $table->date('fecha_publicacion')->nullable();
             $table->timestamps();
         });
     }
