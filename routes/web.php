@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DependenciaController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\HomeController;
@@ -115,3 +116,7 @@ Route::resource('/empleados', EmpleadoController::class)
 // // Metodos Destoy
 // Route::delete('/empleados/{id}', [EmpleadoController::class, 'destroy'])
 //     ->name('empleados.destroy');
+
+// RUTAS PARA DEPENDENCIAS
+Route::resource('/dependencias', DependenciaController::class)
+    ->names('dependencias');
