@@ -19,6 +19,7 @@ class StorePostRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
+    // Metodo donde se retornan todas las validaciones de los campos del fomrulario
     public function rules(): array
     {
         return [
@@ -29,6 +30,7 @@ class StorePostRequest extends FormRequest
         ];
     }
 
+    // Metodo donde se retornan todos los mensajes disponibles por cada una de las validaciones de los campos del formulario
     public function messages()
     {
         return [
@@ -36,6 +38,7 @@ class StorePostRequest extends FormRequest
         ];
     }
 
+    // Metodo donde se retornan los nombres que se le asignaran a los atributos disponibles dentro del formulario
     public function attributes()
     {
         return [

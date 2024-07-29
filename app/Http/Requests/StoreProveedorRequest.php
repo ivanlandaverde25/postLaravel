@@ -33,7 +33,6 @@ class StoreProveedorRequest extends FormRequest
     // Por medio de la funcion messages se pueden modificar los mensajes por cada una de las validaciones que se realizan para los campos
     public function messages(){
         return [
-            'nombre.required' => 'Agregale un :attribute boludo',
             'nombre.string' => 'Debe ingresar una cadena de texto',
             'nombre.min' => 'Debe ingresar como minimo 3 caracteres',
             'nombre.max' => 'El nombre no debe exceder los 255 caracteres',

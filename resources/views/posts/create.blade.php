@@ -9,6 +9,9 @@
 <body style="background-color: #333333; color: #FAFAFA;">
     <h1>Formulario para creacion del post</h1>
 
+    <a href="{{route('posts.index')}}" style="color: #FAFAFA">Regresar al listdo</a>
+
+    <br><br>
     {{-- Los errores se pueden manejar tanto a nivel de lista de esta manera --}}
     @if ($errors->any())
         <div class="">
