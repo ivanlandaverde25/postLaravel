@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -20,20 +21,21 @@ class PostController extends Controller
     }
 
     // Metodo para almacenar los datos dentro de la base de datos de un post, POST
-    public function store(Request $request){
+    public function store(StorePostRequest $request){
         
         // El metodo valida ayuda a verificar los campos que se deseen validar desde el lado del controlador
-        $request->validate(
-            [
-                // Se puede trabajar por medio de 
-                'titulo' => ['required','string','min:5', 'max:255'],
-                // O con barras
-                // 'titulo' => 'required|string|min:5|max:255',
-                'slug'=> ['required','string', 'min:5', 'max:255','unique:posts,slug'],
-                'categoria' => ['required','string', 'min:5', 'max:255'],
-                'detalle' => ['required','string', 'min:5', 'max:2000'],
-            ]
-        );
+        // Las validaciones se agregan en un nuevo archivo el cual es StorePostRequest
+        // $request->validate(
+        //     [
+        //         // Se puede trabajar por medio de 
+        //         'titulo' => ['required','string','min:5', 'max:255'],
+        //         // O con barras
+        //         // 'titulo' => 'required|string|min:5|max:255',
+        //         'slug'=> ['required','string', 'min:5', 'max:255','unique:posts,slug'],
+        //         'categoria' => ['required','string', 'min:5', 'max:255'],
+        //         'detalle' => ['required','string', 'min:5', 'max:2000'],
+        //     ]
+        // );
         
         // Se puede realizar de manera masiva pero se deben configurar los campos fillables dentro del modelo
         Post::create($request->all());

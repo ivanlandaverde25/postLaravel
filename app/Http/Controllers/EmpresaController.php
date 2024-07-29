@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreEmpresaRequest;
 use App\Models\Empresa;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -31,15 +32,16 @@ class EmpresaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreEmpresaRequest $request)
     {
         // Validacion de campos
-        $request->validate([
-            'nombre' => 'required|string|min:5|max:255',
-            'slug' => 'required|string|min:3|max:255|unique:empresas,slug',
-            'direccion' => 'required|string|min:10|max:255',
-            'fecha_apertura' => 'required|date',
-        ]);
+        // Las validaciones se agregan a un nuevo archivo StoreEmpresaRequest
+        // $request->validate([
+        //     'nombre' => 'required|string|min:5|max:255',
+        //     'slug' => 'required|string|min:3|max:255|unique:empresas,slug',
+        //     'direccion' => 'required|string|min:10|max:255',
+        //     'fecha_apertura' => 'required|date',
+        // ]);
         
         // Creacion por medio de asignacion masiva
         Empresa::create($request->all());

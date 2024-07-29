@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreEmpleadoRequest;
 use App\Models\Empleado;
 use Illuminate\Http\Request;
 
@@ -30,17 +31,18 @@ class EmpleadoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreEmpleadoRequest $request)
     {
         // Validación de campos
-        $request->validate([
-            'nombres' => 'required|max:100',
-            'apellidos' => 'required|max:100',
-            'slug' => 'required|max:100|unique:empleados',
-            'telefono' => 'nullable|max:20',
-            'fecha_ingreso' => 'nullable|date',
-            'salario' => 'nullable|numeric',
-        ]);
+        // Las validaciones se agregan a un FormRequest Externo
+        // $request->validate([
+        //     'nombres' => 'required|max:100',
+        //     'apellidos' => 'required|max:100',
+        //     'slug' => 'required|max:100|unique:empleados',
+        //     'telefono' => 'nullable|max:20',
+        //     'fecha_ingreso' => 'nullable|date',
+        //     'salario' => 'nullable|numeric',
+        // ]);
 
         // Creacion por medio de asignacion masiva
         Empleado::create($request->all());

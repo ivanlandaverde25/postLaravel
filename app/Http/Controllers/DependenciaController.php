@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreDependenciaRequest;
 use App\Models\Dependencia;
 use Illuminate\Http\Request;
 
@@ -30,15 +31,15 @@ class DependenciaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreDependenciaRequest $request)
     {
-        $request->validate([
-            'nombre' => 'required|string|min:5|max:255',
-            'nombre_corto' => 'nullable|string|min:2|max:255',
-            'tipo_dependencia' => 'required|string',
-            'fecha_oficial' => 'required|date',
-            'slug' => 'required|string|unique:dependencias,slug',
-        ]);
+        // $request->validate([
+        //     'nombre' => 'required|string|min:5|max:255',
+        //     'nombre_corto' => 'nullable|string|min:2|max:255',
+        //     'tipo_dependencia' => 'required|string',
+        //     'fecha_oficial' => 'required|date',
+        //     'slug' => 'required|string|unique:dependencias,slug',
+        // ]);
 
         Dependencia::create($request->all());
         return redirect()->route('dependencias.index');

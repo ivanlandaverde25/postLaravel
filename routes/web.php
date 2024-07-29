@@ -5,6 +5,7 @@ use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProveedorController;
 use Illuminate\Support\Facades\Route;
 
 // Ruta para la pagina principal
@@ -120,3 +121,10 @@ Route::resource('/empleados', EmpleadoController::class)
 // RUTAS PARA DEPENDENCIAS
 Route::resource('/dependencias', DependenciaController::class)
     ->names('dependencias');
+
+
+// Rutas para Proveedores
+// MUY IMPORTANTE PARA TABLAS QUE SEAN EN PLURAS, SE DEBE DEFINIR EL NOMBRE DEL PARAMETRO O SINO DA ERORR ALVVVVV
+Route::resource('/proveedores', ProveedorController::class)
+    ->parameters(['proveedores' => 'proveedor'])
+    ->names('proveedores');
