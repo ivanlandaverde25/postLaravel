@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePostRequest;
+use App\Mail\PostCreateMail;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PostController extends Controller
 {
@@ -53,6 +55,8 @@ class PostController extends Controller
         // }
         
         // $post->save();
+
+        Mail::to('ivanmendoza572@gmail.com')->send(new PostCreateMail);
         return redirect()->route('posts.index');
     }
     
